@@ -1,0 +1,29 @@
+.product{
+    display: flex;
+    border-bottom: 1px solid lightgray;
+}
+.img{
+    padding: 10px;
+    height: 220px;
+}
+.product-name{
+    font-weight: 400;
+    color: blue;
+}
+.product-details{
+    padding: 5px;
+}
+.cart-btn {
+    background-color: goldenrod;
+    color: white;
+    width: 150px;
+    padding: 5px;
+    text-align: center;
+    border: 1.5px solid #8c8ca185;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
+.cart-btn:hover{
+    color: blue;
+}

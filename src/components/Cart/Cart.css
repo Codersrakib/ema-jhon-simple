@@ -1,0 +1,16 @@
+.cart{
+    position: sticky;
+    top: 10px;
+    right: 10px;
+}
+ .cart>Link>button.cart-btn {
+    background: goldenrod;
+    color: white;
+    width: 150px;
+    padding: 5px;
+    text-align: center;
+    border: 1.5px solid #8c8ca185;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
