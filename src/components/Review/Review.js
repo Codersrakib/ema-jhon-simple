@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import fakeData from '../../fakeData';
-import { getStoredCart } from '../../utilities/fakedb';
+import { getStoredCart ,deleteFromDb } from '../../utilities/fakedb';
 import Reviewitem from '../Reviewitem/Reviewitem';
 
 const Review = () => {
@@ -15,15 +15,22 @@ const Review = () => {
             return product;
         });
         setCount(counts);
-    })
+    },[]);
+    
+    const removeProduct = productKey => {
+        // remove product from review cart
+        const removePd = count.filter(pd => pd.key !== productKey);
+        setCount(removePd);
+        deleteFromDb(productKey);
+    } 
     return (
         <div>
             <h1 style={{color:'yellow',textAlign:'center',background:'green'}}>Review : {count.length}</h1>
             {
-                count.map(pd =>  <Reviewitem product={pd}></Reviewitem>)
+                count.map(pd =>  <Reviewitem removeProduct={removeProduct} product={pd}></Reviewitem>)
             }
         </div>
-    );
+    ); 
 };
 
 export default Review;
