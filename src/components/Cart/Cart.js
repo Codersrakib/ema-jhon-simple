@@ -11,15 +11,18 @@ const Cart = (props) => {
         return num.toFixed(2);
     }
     const cart = props.cart;
+
     // total price using reduce..
-    const totalPrice = cart.reduce((total, Product) => total + Product.price, 0);
+    // const totalPrice = cart.reduce((total, Product) => total + Product.price , 0);
+
+
     // total price using for loop..
-    // let totalPrice = 0;
-    // for(let i = 0; i < cart.length; i++){
-    //      let product = cart[i];
-    //      totalPrice = totalPrice + product.price;
-    //      totalPrice.toFixed(2);
-    // }
+    let totalPrice = 0;
+    for(let i = 0; i < cart.length; i++){
+         let product = cart[i];
+         totalPrice = totalPrice + product.price * product.Quantity;
+        //  totalPrice.toFixed(2);
+    }
 
     // shipping cost
     let shippingCost = 0;
@@ -42,9 +45,9 @@ const Cart = (props) => {
             <h6>Shipping Cost : {shippingCost}</h6>
             <h6>Tex & vat (12%) : {formatNumber(tex)}</h6>
             <h6>Total Price : {formatNumber(totalPrice + tex + shippingCost)}</h6>
-            <Link to={'/review'}>
-                <button className='Cart-btn'> Order Review</button>
-            </Link>
+            {
+                props.children
+            }
         </div>
     );
 };
